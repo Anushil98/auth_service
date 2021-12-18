@@ -20,13 +20,16 @@ app.post("/generate_jwt", (req: Request, res: Response) => {
         "15 min"
       );
       return res.send({ accessToken: accessToken, message: "Auth Success!" });
-    }return res.status(401).send({message:"Username or password is incorrect"})
+    }
+    return res
+      .status(401)
+      .send({ message: "Username or password is incorrect" });
   } catch (err) {
     console.error(err);
     throw err;
   }
 });
 
-app.listen(3001,()=>{
-    console.log("Auth Server live on https://localhost:3001")
-})
+app.listen(3001, () => {
+  console.log("Auth Server live on https://localhost:3001");
+});
